@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.db.models import models
+from django.db import models
 from django.utils import timezone
 from django.db.models.functions import Now
 
@@ -11,8 +11,8 @@ from django.db.models.functions import Now
 
 class Post (models.Model):
     class Status(models.TextChoices):
-        DRAFT = 'draft', 'Draft'
-        PUBLISHED = 'published', 'Published'
+        DRAFT = 'DF', 'Draft'
+        PUBLISHED = 'PB', 'Published'
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250)
     author = models.ForeignKey(
